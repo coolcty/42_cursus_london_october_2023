@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:57:59 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 17:03:46 by tochen           ###   ########.fr       */
+/*   Updated: 2023/10/31 23:49:02 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    while (*s)
-    {
-        if (*s == c)
-            return (s);
-    }
-    if (c == 0)
-        return (s);
-    return (0);
+	while (*s)
+	{
+		if (*s == c)
+			return ((char *)s);
+	}
+	if (c == 0)
+		return ((char *)s);
+	return (0);
 }

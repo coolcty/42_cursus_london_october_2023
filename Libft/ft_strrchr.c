@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:59:37 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 17:04:07 by tochen           ###   ########.fr       */
+/*   Updated: 2023/10/31 23:48:10 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    char *res;
+	char	*res;
 
-    res = 0;
-    while (*s)
-    {
-        if (*s == c)
-            res = s;
-        s++;
-    }
-    if (c == 0)
-        res = s;
-    return (res);
+	res = 0;
+	while (*s)
+	{
+		if (*s == c)
+			res = (char *)s;
+		s++;
+	}
+	if (c == 0)
+		res = (char *)s;
+	return (res);
 }

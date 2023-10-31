@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:54:36 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 17:02:02 by tochen           ###   ########.fr       */
+/*   Updated: 2023/10/31 23:47:50 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    if (n == 0)
-        return (0);
-    while (*s1 && *s2 && n > 1)
-    {
-        if (*s1 != *s2)
-            return (*s1 - *s2);
-        s1++;
-        s2++;
-        n--;
-    }
-    return (*s1 - *s2);
+	if (n == 0)
+		return (0);
+	while (*s1 && *s2 && n > 1)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+		n--;
+	}
+	return (*s1 - *s2);
 }

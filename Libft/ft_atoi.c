@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/16 16:29:56 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 17:02:06 by tochen           ###   ########.fr       */
+/*   Created: 2023/10/31 23:51:15 by tochen            #+#    #+#             */
+/*   Updated: 2023/10/31 23:51:32 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_isspace(char c)
 {
 	return (c == ' ' || (c <= 13 && c >= 9));
 }
-
 
 int	ft_atoi(char *str)
 {

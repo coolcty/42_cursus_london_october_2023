@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:59:40 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 16:59:41 by tochen           ###   ########.fr       */
+/*   Updated: 2023/10/31 23:48:29 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (c <= 'Z' && c >= 'A')
-        return (c - 'A' + 'a');
-    return (c);
+	if (c <= 'Z' && c >= 'A')
+		return (c - 'A' + 'a');
+	return (c);
 }

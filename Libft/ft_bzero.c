@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:51:15 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 17:02:10 by tochen           ###   ########.fr       */
+/*   Updated: 2023/10/31 23:51:46 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h" 
 
 void	ft_bzero(void *s, size_t n)
 {
-	char *cs=s;
-	while(n>0)
+	char	*cs;
+
+	cs = s;
+	while (n > 0)
 	{
-		*cs=0;
+		*cs = 0;
 		cs++;
 		n--;
 	}

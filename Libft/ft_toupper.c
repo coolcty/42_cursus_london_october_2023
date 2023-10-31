@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:59:46 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 16:59:47 by tochen           ###   ########.fr       */
+/*   Updated: 2023/10/31 23:48:39 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if (c <= 'z' && c >= 'a')
-        return (c + 'A' - 'a');
-    return (c);
+	if (c <= 'z' && c >= 'a')
+		return (c + 'A' - 'a');
+	return (c);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tochen <tochen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:59:00 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/30 17:03:19 by tochen           ###   ########.fr       */
+/*   Updated: 2023/10/31 23:50:00 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int isascii(int c)
+int	isascii(int c)
 {
-    if (c >= 0 || c <= 127)
-        return (1);
-    else
-        return (0);
+	if (c >= 0 || c <= 127)
+		return (1);
+	else
+		return (0);
 }
