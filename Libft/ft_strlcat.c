@@ -6,13 +6,13 @@
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 23:51:54 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/31 23:47:10 by tochen           ###   ########.fr       */
+/*   Updated: 2023/11/01 02:33:45 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	result;
 	size_t	l_dest;

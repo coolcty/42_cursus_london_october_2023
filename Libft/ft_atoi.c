@@ -6,18 +6,18 @@
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 23:51:15 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/31 23:51:32 by tochen           ###   ########.fr       */
+/*   Updated: 2023/11/13 22:24:19 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	return (c == ' ' || (c <= 13 && c >= 9));
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	long long	result;
 	int			sign;
@@ -28,7 +28,7 @@ int	ft_atoi(char *str)
 	{
 		str++;
 	}
-	while (*str == '+' || *str == '-')
+	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
 			sign *= -1;

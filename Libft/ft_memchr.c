@@ -6,7 +6,7 @@
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:57:32 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/31 23:49:37 by tochen           ###   ########.fr       */
+/*   Updated: 2023/11/13 20:56:56 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char *cs;
-
-	cs == (unsigned char *)s;
+	unsigned char uc;
+	
+	uc = (unsigned char)c;
+	cs = (unsigned char *)s;
 	while (n > 0)
 	{
-		if (*cs == c)
+		if (*cs == uc)
 			return (cs);
 		cs++;
 		n--;
