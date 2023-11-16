@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 18:08:39 by tochen            #+#    #+#             */
-/*   Updated: 2023/11/16 04:00:53 by tochen           ###   ########.fr       */
+/*   Created: 2023/11/16 00:19:51 by tochen            #+#    #+#             */
+/*   Updated: 2023/11/16 03:57:01 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+static void	ft_lstclear_recursion(t_list *lst, void (*del)(void *))
 {
-	void	*res;
+	if (!lst)
+		return ;
+	ft_lstclear_recursion(lst->next, del);
+	del(lst->content);
+	free(lst);
+}
 
-	if (!nmemb || !size)
-		return (malloc(1));
-	if ((size_t)(-1) / nmemb < size)
-		return (0);
-	res = malloc(nmemb * size);
-	if (res)
-		ft_bzero(res, nmemb * size);
-	return (res);
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	if (!del || !lst)
+		return ;
+	ft_lstclear_recursion(*lst, del);
+	*lst = NULL;
 }

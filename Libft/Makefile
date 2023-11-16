@@ -1,32 +1,37 @@
-LIST 		= ft_calloc.c   ft_isdigit.c  ft_memcpy.c   ft_strdup.c   ft_strncmp.c  ft_tolower.c ft_isalnum.c  ft_isprint.c  ft_memmove.c  ft_strlcat.c  ft_strnstr.c  ft_toupper.c ft_atoi.c   ft_isalpha.c  ft_memchr.c   ft_memset.c   ft_strlcpy.c  ft_strrchr.c  ft_bzero.c  ft_isascii.c  ft_memcmp.c   ft_strchr.c   ft_strlen.c   ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c# ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+.DEFAULT_GOAL := all
+MANDATORY	= calloc isdigit  memcpy   strdup   strncmp  tolower isalnum  isprint  memmove  strlcat \
+strnstr  toupper atoi   isalpha  memchr   memset   strlcpy  strrchr  bzero  isascii  memcmp   strchr  \
+strlen   substr strjoin strtrim split itoa strmapi striteri putchar_fd putstr_fd putendl_fd putnbr_fd
+BONUS		= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear lstiter lstmap
 CFLAGS		= -Wall -Wextra -Werror
 CC			= cc
-INC			= -I./includes
-SRC_DIRS    = ./
-OBJ_DIRS    = ${SRC_DIRS}
-SRCS		= ${addprefix ${SRC_DIRS}/, ${LIST}}
-OBJS 		= ${SRCS:${SRC_DIRS}/%.c=${OBJ_DIRS}/%.o}
 NAME 		= libft.a 
 RM          = rm -f
 COM			= ar rc
 
-${OBJ_DIRS}/%.o: ${SRC_DIRS}/%.c		
-			${CC} ${CFLAGS} -c $< -o $@ ${INC}
 
-${NAME}: 	${OBJS}
-			${COM} ${NAME} ${OBJS}
+%.o: %.c		
+	${CC} ${CFLAGS} -c $< -o $@ 
+
+${NAME}: 	${MANDATORY:%=ft_%.o}
+			${COM} ${NAME} ${MANDATORY:%=ft_%.o}
 			ranlib ${NAME}
 
 all:		${NAME}
 
+bonus:		${NAME} ${BONUS:%=ft_%.o}
+			${COM} ${NAME} ${BONUS:%=ft_%.o}
+			ranlib ${NAME}
 clean:		
-			${RM} ${OBJS}
+			${RM} ${MANDATORY:%=ft_%.o} ${BONUS:%=ft_%.o}
 
 fclean:		clean
 			${RM} ${NAME}
 
 re:         fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+#so:
+#	$(CC) -nostartfiles -fPIC $(CFLAGS) *.c
+#	gcc -nostartfiles -shared -o libft.so *.o
+
+.PHONY:		all clean fclean re bonus

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 18:08:39 by tochen            #+#    #+#             */
-/*   Updated: 2023/11/16 04:00:53 by tochen           ###   ########.fr       */
+/*   Created: 2023/11/16 00:12:00 by tochen            #+#    #+#             */
+/*   Updated: 2023/11/16 03:57:10 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	void	*res;
+	t_list	*last_node;
 
-	if (!nmemb || !size)
-		return (malloc(1));
-	if ((size_t)(-1) / nmemb < size)
-		return (0);
-	res = malloc(nmemb * size);
-	if (res)
-		ft_bzero(res, nmemb * size);
-	return (res);
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last_node = ft_lstlast(*lst);
+	last_node->next = new;
 }

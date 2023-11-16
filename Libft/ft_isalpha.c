@@ -6,11 +6,13 @@
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:58:52 by tochen            #+#    #+#             */
-/*   Updated: 2023/10/31 23:50:03 by tochen           ###   ########.fr       */
+/*   Updated: 2023/11/16 04:06:41 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
 	return ((c <= 'Z' && c >= 'A') || (c <= 'z' && c >= 'a'));
-} 
+}

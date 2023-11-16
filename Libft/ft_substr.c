@@ -6,7 +6,7 @@
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:19:19 by tochen            #+#    #+#             */
-/*   Updated: 2023/11/15 00:05:06 by tochen           ###   ########.fr       */
+/*   Updated: 2023/11/16 03:55:48 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*res;
 
+	if (!s)
+		return (0);
 	slen = ft_strlen(s);
 	if (slen < start)
 		rlen = 0;

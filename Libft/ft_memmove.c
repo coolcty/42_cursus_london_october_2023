@@ -6,7 +6,7 @@
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:57:51 by tochen            #+#    #+#             */
-/*   Updated: 2023/11/15 00:04:20 by tochen           ###   ########.fr       */
+/*   Updated: 2023/11/16 03:38:42 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		sc += n - 1;
 		incre = -1;
 	}
-	else if (dest < src)
+	else if (dest <= src)
 		incre = 1;
 	while (n > 0 && dest != src)
 	{

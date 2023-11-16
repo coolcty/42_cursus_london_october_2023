@@ -6,7 +6,7 @@
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 02:27:18 by tochen            #+#    #+#             */
-/*   Updated: 2023/11/01 02:44:34 by tochen           ###   ########.fr       */
+/*   Updated: 2023/11/16 04:15:35 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *res;
-	size_t l1, l2;
+	char	*res;
+	size_t	l1;
+	size_t	l2;
 
+	if (!s1 || !s2)
+		return (0);
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
 	res = malloc(l1 + l2 + 1);
