@@ -4,4 +4,7 @@
     },
     "42header.username": "tochen",
     "42header.email": "tochen@student.42london.com",
+    "files.associations": {
+        "libft.h": "c"
+    },
 }
