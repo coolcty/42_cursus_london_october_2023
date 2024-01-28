@@ -5,6 +5,8 @@
     "42header.username": "tochen",
     "42header.email": "tochen@student.42london.com",
     "files.associations": {
-        "libft.h": "c"
+        "libft.h": "c",
+        "limits.h": "c",
+        "syslimits.h": "c"
     },
 }

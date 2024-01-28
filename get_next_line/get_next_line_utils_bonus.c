@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:42:40 by tochen            #+#    #+#             */
-/*   Updated: 2024/01/28 00:14:05 by tochen           ###   ########.fr       */
+/*   Updated: 2024/01/28 09:25:48 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ char	*ft_strchr(const char *s, int c)
 	unsigned char	uc;
 
 	uc = (unsigned char)c;
-	if (!s)
-		return (0);
 	while (*s)
 	{
 		if (*s == uc)
