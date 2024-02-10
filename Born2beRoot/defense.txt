@@ -1,0 +1,126 @@
+Q: X.org
+
+Free and open-source implementation of the display server for the X Window System stewarded by the X.Org Foundation. The X Window System is a windowing system for bitmap displays, common on Unix-like operating systems.
+
+Q: The differences between aptitude and apt, or what SELinux or AppArmor is. In short, understand what you use!
+
+Apt and aptitude are both package management tools in Debian-based Linux distributions, used to handle packages. apt is more commonly used and is often considered more user-friendly, while aptitude provides a text-based interactive interface and more features.
+
+
+Q:  What SELinux or AppArmor is 
+SELinux (Security-Enhanced Linux) and AppArmor (Application Armor) are Linux security modules that provide a way to support access control security policies. They are used to restrict programs' capabilities with per-program profiles.
+
+Q: A SSH service
+SSH (Secure Shell) is a network protocol that provides a secure way to access a remote computer. An SSH service, often running on port 22, allows secure remote login, secure file transfers, and executes remote commands.
+
+```bash
+sudo apt-get update
+sudo apt-get install openssh-server
+sudo systemctl status ssh
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo nano /etc/ssh/sshd_config
+sudo systemctl restart ssh
+```
+In nano
+Port 4242 
+PermitRootLogin no
+
+"PermitRootLogin prohibit-password"  means that the root user can only authenticate using methods other than password. These methods could be public key authentication or certificate-based authentication.
+
+ip addr show
+curl ifconfig.me
+
+Configure your operating system with the UFW firewall and leave only port 4242 open.
+
+sudo apt update
+sudo apt install ufw
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 4242
+sudo ufw status verbose
+
+Firewall must be active when you launch your virtual machine.
+
+sudo ufw enable
+sudo ufw status verbose
+systemctl status ufw
+sudo systemctl enable ufw
+sudo systemctl start ufw
+sudo reboot
+systemctl status UFW
+
+
+Change the Hostname Temporarily:
+sudo hostname new_hostname
+sudo nano /etc/hosts
+
+Change the Hostname Permanently:
+sudo nano /etc/hostname
+sudo nano /etc/hosts
+sudo systemctl restart ssh
+
+relogin
+127.0.1.1 4242
+
+Implement a strong password policy.
+
+sudo apt-get update
+sudo apt-get install libpam-pwquality
+
+sudo nano /etc/pam.d/common-password
+
+modify this line:
+password        requisite                       pam_pwquality.so retry=3 minlen=10 difok=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
+retry=3 specifies the number of retries if the password fails to meet the policy.
+minlen=10 sets the minimum length of the password to 10 characters.
+difok=3 requires that the new password differ by at least 3 characters from the old one.
+ucredit=-1 requires at least one uppercase letter.
+lcredit=-1 requires at least one lowercase letter.
+dcredit=-1 requires at least one digit.
+ocredit=-1 requires at least one special character.
+
+Open the following to see detailed pam_pwquality.so parameter
+sudo nano /etc/security/pwquality.conf
+
+Immediate Termination: requisite modules
+Deferred Failure: required modules
+Eg:
+A required password check module.
+A requisite two-factor authentication (2FA) module.
+A required logging module that records all authentication attempts.
+
+
+Password Aging Policy:
+sudo nano /etc/login.defs
+PASS_MAX_DAYS 90 sets the maximum number of days a password may be used.
+PASS_MIN_DAYS 10 sets the minimum number of days allowed between password changes.
+PASS_WARN_AGE 7 sets the number of days warning given before a password expires.
+
+
+sudo groupadd user42
+sudo groupdel user42
+getent group
+getent group user42
+
+
+To see group and user list:
+getent group 
+
+check the primary group of a user:
+id -gn username
+
+Check the users whose primiary group is a given group:
+
+
+
+
+
+
+
+
+
+
+
+
