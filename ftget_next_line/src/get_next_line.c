@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tochen <tochen@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:42:26 by tochen            #+#    #+#             */
-/*   Updated: 2024/01/28 00:26:35 by tochen           ###   ########.fr       */
+/*   Updated: 2024/01/28 00:23:47 by tochen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 #include <stdlib.h>
 #include <unistd.h>
-
-static size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	size_t	result;
-
-	result = ft_strlen(src);
-	if (size < 1)
-		return (result);
-	while (*src && size > 1)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-		size--;
-	}
-	*dest = 0;
-	return (result);
-}
 
 // returns 1 if to return, 0 if error, 2 if to continue
 static int	process_buffer(char **line, char **buffer, int fd)
@@ -92,6 +74,23 @@ static int	init_buffer(char **buffer, int fd)
 	return (1);
 }
 
+static char	*clean(char **buffer, char *line, int fd, int state)
+{
+	if (state == 0 || ft_strlen(buffer[fd]) == 0)
+	{
+		free(buffer[fd]);
+		buffer[fd] = NULL;
+	}
+	if (!line)
+		return (line);
+	else if (state == 0 || ft_strlen(line) == 0)
+	{
+		free(line);
+		line = NULL;
+	}
+	return (line);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*buffer[4096];
@@ -100,21 +99,16 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buffer[fd] && !init_buffer(buffer, fd))
-		return (NULL);
 	line = ft_strdup("");
 	if (!line)
 		return (NULL);
+	if (!buffer[fd] && !init_buffer(buffer, fd))
+		return (NULL);
 	state = process_buffer(&line, buffer, fd);
 	if (state == 0)
-		return (NULL);
+		return (clean(buffer, line, fd, state));
 	else if (state == 1)
-		return (line);
+		return (clean(buffer, line, fd, state));
 	state = read_into_line(fd, buffer, &line);
-	if (state == 0 || ft_strlen(line) == 0)
-	{
-		free(line);
-		return (NULL);
-	}
-	return (line);
+	return (clean(buffer, line, fd, state));
 }

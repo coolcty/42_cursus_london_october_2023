@@ -50,3 +50,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/.vs/42_cursus_london_october_2023/v17
+/.vs
+/out
