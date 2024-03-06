@@ -2,7 +2,7 @@ project(ftget_next_line)
 
 #BUFFER_SIZE_LIST 2048 6 1 42 41 43
 
-set(_SIZE 42)
+set(_SIZE 1000)
 
 ft_add_binary(
 NAME ${PROJECT_NAME}

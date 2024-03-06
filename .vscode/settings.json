@@ -9,4 +9,5 @@
         "limits.h": "c",
         "syslimits.h": "c"
     },
+    "iis.configDir": "",
 }
