@@ -98,7 +98,7 @@ PASS_MAX_DAYS 90 sets the maximum number of days a password may be used.
 PASS_MIN_DAYS 10 sets the minimum number of days allowed between password changes.
 PASS_WARN_AGE 7 sets the number of days warning given before a password expires.
 
-
+getent means get entries
 sudo groupadd user42
 sudo groupdel user42
 getent group
@@ -111,12 +111,43 @@ getent group
 check the primary group of a user:
 id -gn username
 
-Check the users whose primiary group is a given group:
+Check the users of a given group:
+getent group groupName
+
+How to add user:
+sudo adduser newusername
+
+Check the groups of a user:
+groups username
+
+Add a new group:
+sudo groupadd newgroupname
+
+Add a user to a given group:
+sudo usermod -a -G groupName username
+
+Enter the root shell:
+sudo su -
+Exit: logout
+su is a command to run sth as a certain user
+
+Change password:
+passwd 
+passwd username
+
+Aa16291991
+
+root password: Bc75586994
+Try new password: Bc75586995
+Login to a certain user:
+sudo su - username
+
+Configure  strongly a group(only sudo visudo command to edit /etc/sudoers file):
+sudo visudo
 
 
-
-
-
+Edit crontab ( crontab -e) and add a line like:
+*/10 * * * * /path/to/monitoring.sh >/dev/null 2>&1
 
 
 
