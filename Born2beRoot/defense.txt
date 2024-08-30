@@ -146,12 +146,101 @@ Configure  strongly a group(only sudo visudo command to edit /etc/sudoers file):
 sudo visudo
 
 
-Edit crontab ( crontab -e) and add a line like:
-*/10 * * * * /path/to/monitoring.sh >/dev/null 2>&1
+Edit crontab ( sudo crontab -u root -e) and add a line like:
+*/10 * * * * sh /path/to/monitoring.sh
+
+Get the signature:
+cd /mnt/c/Users/coolc/VirtualBox VMs/Born2beRoot
+sha1sum Born2beRoot.vdi>signature.txt
+or
+Windows: certUtil -hashfile rocky_serv.vdi sha1
 
 
+Defense:
+1. Basic Functioning of a Virtual Machine (VM)
+Hypervisor; Virtual Hardware; Isolation;Resource Allocation; Operating Systems and Applications
+2. Choice of Operating System in VMs
+specific needs of the applications to be run; compatibility with existing infrastructure; security requirements; and administrative familiarity. 
+
+3. Basic Differences Between Rocky Linux and Debian
+Rocky Linux:
+
+Purpose: Rocky Linux is designed to be a downstream, binary-compatible release with Red Hat Enterprise Linux (RHEL), intended to replace CentOS after its shift in project focus.
+Package Management: Uses yum and dnf for package management, typical for RHEL-based distributions.
+System Management: Emphasizes stability and long-term support, appealing to enterprise environments.
+Debian:
+
+Purpose: Debian is a community-driven project known for its dedication to free software principles, stability, and security.
+Package Management: Uses the apt
+System Management: Focuses on versatility and supports a wider range of hardware architectures.
+The choice :compatibility with existing systems, preference for community vs. enterprise support, and specific system requirements.
+
+4. Benefits of Virtual Machines
+Isolation;
+Resource Efficiency: Multiple VMs can run on a single physical machine, allowing for better utilization of physical resources.
+Flexibility and Testing: VMs can be used to create safe testing environments, easily replicate different computing environments, and rollback to previous states.
+Disaster Recovery: VMs are easy to backup, migrate, and restore, which enhances business continuity and disaster recovery strategies.
+Simplification of Administration: Virtualization can simplify IT operations and reduce hardware costs by consolidating servers and reducing physical infrastructure.
+The use of VMs can significantly enhance the agility and efficiency of IT operations in businesses, providing scalable solutions that adjust to varying workload demands.
+
+Difference between aptitude and apt:
+aptitude and apt are both package management tools used on Debian and other Debian-based Linux distributions (like Ubuntu). The former is more powerful for package dependencies, the latter is easier to use.
 
 
+AppArmor (Application Armor) is a Linux kernel security module that helps in restricting programs' capabilities with per-program profiles.
+
+aa-status
+ufw status
+sudo systemctl status ssh
+groups tochen
+
+useradd test
+sudo passwd test
+
+sudo nano /etc/pam.d/common-password
+sudo nano /etc/security/pwquality.conf
+sudo groupadd evaluating
+sudo usermod -a -G groupName username
+
+sudo ！！
 
 
+Permanently:
+sudo nano /etc/hostname 
+sudo nano /etc/hosts
+Temporarily:
+sudo hostname new_hostname
 
+LVM stands for Logical Volume Manager, a system for managing disk storage in a more flexible and sophisticated manner
+Physical Volumes (PVs)
+Volume Group (VG)
+Logical Volumes (LVs)
+Filesystems
+resize volumes dynamically
+Snapshots: LVM can create snapshots of Logical Volumes.
+Storage Pooling: LVM allows for the pooling of physical storage from multiple disks into a single unified Volume Group. 
+Create mirrored volumes across different disks.
+Abstracts the physical properties of the disk for ease of management.
+
+SUDO:
+which sudo
+sudo usermod -a -G groupName username
+sudo visudo
+
+su -
+cd /var/log/sudo/
+
+which ufw
+ufw status
+
+sudo ufw allow 8080
+sudo ufw delete allow 8080
+
+which ssh
+sudo systemctl status sshd
+sudo nano /etc/ssh/sshd_config
+
+Cron is a time-based job scheduler in Unix.
+sudo crontab -u root -e
+
+ee2c3d3c6bee15fc1cbf052c05bfecfc2dc3ae22
